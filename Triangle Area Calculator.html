@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <style>
+            body {
+                text-align: center;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                background-color: antiquewhite;
+            }
+            table, th, td {
+                border: 2px solid black;
+            }
+            .triangle-left {
+	width: 0;
+	height: 0;
+	border-top: 25px solid transparent;
+	border-right: 50px solid #0b23d8;
+	border-bottom: 25px solid transparent;
+}
+        </style>
+    </head>
+<body>
+    <h1 style="text-align: center;"><strong>Calculate the Area of a Triangle</strong></h1>
+    <br><br><center><div class="triangle-left"></div></center><br><br>
+    <p style="font-size: x-large; text-align: center;">Input the lengths of three sides of a triangle and click the [Area of triangle] button.</p>
+    <br><br>
+    <center>
+    <table>
+        <tr>
+            <th>Length A</th>
+            <th>Length B</th>
+            <th>Length C</th>
+            <th>Area of the Triangle</th>
+            </tr>
+         <tr>
+                <td><input type="number"; id="L1"; min="0">cm</td>
+                <td><input type="number"; id="L2"; min="0">cm</td>
+                <td><input type="number"; id="L3"; min="0">cm</td>
+                <td><p id="area"></p></td>
+        </tr>
+    </table><br><br>
+    <button onclick="myFunction()"><strong>Area of triangle</strong></button>
+    <br><br>
+    <p>*Illustration of a <em>demo</em> triangle</p><br>
+    <img src="https://www.triangle-calculator.com/images/triangle_ABC_angles.gif" alt="Demo Triangle">
+    </center>
+    <script>
+
+function myFunction() {
+    var L1 = parseFloat(document.getElementById("L1").value);
+    var L2 = parseFloat(document.getElementById("L2").value);
+    var L3 = parseFloat(document.getElementById("L3").value);
+    var part1 = 4 * Math.pow(L1, 2) * Math.pow(L2, 2);
+    var part2 = Math.pow(Math.pow(L1, 2) + Math.pow(L2, 2) - Math.pow(L3, 2), 2);
+    var Ans = 0.25 * Math.sqrt(part1 - part2);
+    if (L1 + L2 <= L3 || L2 + L3 <= L1 || L1 + L3 <= L2) {
+        alert ("Please check your input!!! The lengths you input do not form a triangle.");
+    } else {
+        document.getElementById("area").innerHTML = Ans + " cm²";
+    }
+}
+    </script>
+</body>
+</html>
